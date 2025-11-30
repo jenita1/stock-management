@@ -1,0 +1,352 @@
+// ...existing code...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventro | Smart Inventory Management</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        // Tailwind custom configuration (fonts & colors)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5', // Indigo 600
+                        secondary: '#1E293B', // Slate 800
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-600 antialiased bg-white">
+
+    <!-- NAVBAR SECTION
+         - Brand / Logo
+         - Primary navigation links (Features, How it Works, Pricing, Contact)
+         - Actions: Login, Get Started
+         - Mobile menu toggle
+    -->
+    <nav class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <!-- Brand -->
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white text-xl font-bold">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                </div>
+                <span class="self-center text-2xl font-bold whitespace-nowrap text-secondary">Inventro</span>
+            </a>
+
+            <!-- Actions (Login / Get Started) & Mobile Toggle -->
+            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <!-- Login button -->
+                <a href="login.html" class="text-secondary hover:text-primary font-medium rounded-lg text-sm px-4 py-2 text-center md:mr-4 transition">Login</a>
+                <!-- Primary CTA -->
+                <button type="button" class="text-white bg-primary hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition">Get Started</button>
+                
+                <!-- Mobile menu toggle (visible on small screens) -->
+                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200" aria-controls="navbar-sticky" aria-expanded="false" id="menu-toggle">
+                    <span class="sr-only">Open main menu</span>
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- NAV LINKS (collapsible on mobile) -->
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+                    <li>
+                        <a href="#features" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 transition">Features</a>
+                    </li>
+                    <li>
+                        <a href="#how-it-works" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 transition">How it Works</a>
+                    </li>
+                    <li>
+                        <a href="#pricing" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 transition">Pricing</a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary md:p-0 transition">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION
+         - Headline + subheading
+         - Primary CTAs (Start Free Trial, Watch Demo)
+         - Optional hero image / mockup on large screens
+    -->
+    <section class="bg-white pt-32 pb-16 lg:pt-40 lg:pb-24">
+        <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div class="mr-auto place-self-center lg:col-span-7">
+                <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-secondary">
+                    Stop Guessing.<br>Start <span class="text-primary">Tracking.</span>
+                </h1>
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
+                    The all-in-one inventory management system designed for modern businesses. Track stock in real-time, automate reordering, and reduce waste by 30%.
+                </p>
+
+                <!-- Hero CTA buttons -->
+                <div class="flex flex-col space-y-4 sm:flex-row sm:justify-start sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-300 transition shadow-lg shadow-indigo-500/30">
+                        Start Free Trial
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 transition">
+                        <i class="fa-solid fa-play mr-2"></i> Watch Demo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero image / mockup (visible on lg+) -->
+            <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
+                <img src="https://placehold.co/600x400/f3f4f6/4F46E5?text=Inventory+Dashboard+UI" alt="mockup" class="rounded-xl shadow-2xl border border-gray-100 transform hover:scale-105 transition duration-500">
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY / LOGOS SECTION
+         - Short headline and brand logos to build trust
+    -->
+    <section class="bg-gray-50 py-8">
+        <div class="max-w-screen-xl px-4 mx-auto">
+            <p class="text-center text-gray-500 text-sm font-semibold uppercase tracking-wider mb-6">Trusted by 2,000+ businesses worldwide</p>
+            <div class="flex flex-wrap justify-center gap-8 text-gray-400 opacity-60">
+                <i class="fa-brands fa-aws text-4xl"></i>
+                <i class="fa-brands fa-google text-4xl"></i>
+                <i class="fa-brands fa-stripe text-4xl"></i>
+                <i class="fa-brands fa-shopify text-4xl"></i>
+                <i class="fa-brands fa-dhl text-4xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION
+         - Section header and description
+         - 3 feature cards (Real-time Analytics, Low Stock Alerts, Barcode Scanning)
+         - Each card contains icon, title, description
+    -->
+    <section id="features" class="bg-white py-20">
+        <div class="max-w-screen-xl px-4 mx-auto text-center">
+            <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-secondary md:text-4xl">Why choose Inventro?</h2>
+            <p class="text-gray-500 sm:text-xl mb-12 max-w-2xl mx-auto">Everything you need to manage your warehouse, sales, and orders in one centralized platform.</p>
+            
+            <div class="grid space-y-8 lg:grid-cols-3 lg:gap-12 lg:space-y-0">
+                <!-- Feature card 1 -->
+                <div class="p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-full flex items-center justify-center text-2xl mb-6 mx-auto">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="mb-2 text-xl font-bold text-secondary">Real-time Analytics</h3>
+                    <p class="text-gray-500">Visualize your sales trends and stock levels instantly. Make data-driven decisions without the spreadsheet headache.</p>
+                </div>
+
+                <!-- Feature card 2 -->
+                <div class="p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-full flex items-center justify-center text-2xl mb-6 mx-auto">
+                        <i class="fa-solid fa-bell"></i>
+                    </div>
+                    <h3 class="mb-2 text-xl font-bold text-secondary">Low Stock Alerts</h3>
+                    <p class="text-gray-500">Never run out of best-sellers. Set automatic thresholds and get notified via email or SMS when it's time to reorder.</p>
+                </div>
+
+                <!-- Feature card 3 -->
+                <div class="p-8 bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-xl transition duration-300">
+                    <div class="w-14 h-14 bg-indigo-100 text-primary rounded-full flex items-center justify-center text-2xl mb-6 mx-auto">
+                        <i class="fa-solid fa-barcode"></i>
+                    </div>
+                    <h3 class="mb-2 text-xl font-bold text-secondary">Barcode Scanning</h3>
+                    <p class="text-gray-500">Compatible with all major barcode scanners. Speed up your intake and checkout process with simple point-and-shoot tech.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION
+         - Pricing header and description
+         - Three pricing cards: Starter, Professional (popular), Enterprise
+         - Each card lists features and CTA
+    -->
+    <section id="pricing" class="bg-gray-50 py-20">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-secondary">Designed for business growth</h2>
+                <p class="mb-5 font-light text-gray-500 sm:text-xl">Start small and scale up as your inventory grows.</p>
+            </div>
+            <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
+                <!-- Pricing: Starter -->
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+                    <h3 class="mb-4 text-2xl font-semibold">Starter</h3>
+                    <p class="font-light text-gray-500 sm:text-lg mb-4">Best for small shops.</p>
+                    <div class="flex justify-center items-baseline my-8">
+                        <span class="mr-2 text-5xl font-extrabold">$29</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul role="list" class="mb-8 space-y-4 text-left">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Up to 1,000 SKUs</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>1 Warehouse</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Basic Reporting</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-secondary bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition">Get started</a>
+                </div>
+                
+                <!-- Pricing: Professional (Popular) -->
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border-2 border-primary shadow-xl xl:p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <h3 class="mb-4 text-2xl font-semibold">Professional</h3>
+                    <p class="font-light text-gray-500 sm:text-lg mb-4">For growing businesses.</p>
+                    <div class="flex justify-center items-baseline my-8">
+                        <span class="mr-2 text-5xl font-extrabold">$79</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul role="list" class="mb-8 space-y-4 text-left">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Unlimited SKUs</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>5 Warehouses</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Barcode Scanning Support</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Advanced Analytics</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-white bg-primary hover:bg-indigo-700 focus:ring-4 focus:ring-indigo-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition">Get started</a>
+                </div>
+
+                <!-- Pricing: Enterprise -->
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow xl:p-8">
+                    <h3 class="mb-4 text-2xl font-semibold">Enterprise</h3>
+                    <p class="font-light text-gray-500 sm:text-lg mb-4">For large scale needs.</p>
+                    <div class="flex justify-center items-baseline my-8">
+                        <span class="mr-2 text-5xl font-extrabold">$199</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <ul role="list" class="mb-8 space-y-4 text-left">
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Unlimited Everything</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>API Access</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-check text-green-500"></i>
+                            <span>Dedicated Account Manager</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="text-secondary bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center transition">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION (FULL WIDTH)
+         - Prominent CTA section with contrasting background
+         - Short headline + CTA button
+    -->
+    <section class="bg-primary">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <div class="mx-auto max-w-screen-sm text-center">
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-white">Start your 14-day free trial</h2>
+                <p class="mb-6 font-light text-indigo-200 md:text-lg">No credit card required. Cancel anytime.</p>
+                <a href="#" class="text-primary bg-white hover:bg-gray-100 focus:ring-4 focus:ring-indigo-300 font-medium rounded-lg text-sm px-8 py-3 mr-2 mb-2 transition">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION
+         - Brand & description
+         - Product / Support / Legal link groups
+         - Copyright & social links
+    -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+            <div class="md:flex md:justify-between">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="flex items-center space-x-3">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white text-sm font-bold">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                        </div>
+                        <span class="self-center text-2xl font-bold whitespace-nowrap text-secondary">Inventro</span>
+                    </a>
+                    <p class="mt-4 text-gray-500 text-sm max-w-xs">Simplifying inventory management for businesses of all sizes since 2023.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Product</h2>
+                        <ul class="text-gray-500 font-medium">
+                            <li class="mb-4"><a href="#" class="hover:underline">Features</a></li>
+                            <li class="mb-4"><a href="#" class="hover:underline">Integrations</a></li>
+                            <li><a href="#" class="hover:underline">Pricing</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Support</h2>
+                        <ul class="text-gray-500 font-medium">
+                            <li class="mb-4"><a href="#" class="hover:underline">Help Center</a></li>
+                            <li class="mb-4"><a href="#" class="hover:underline">API Docs</a></li>
+                            <li><a href="#" class="hover:underline">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase">Legal</h2>
+                        <ul class="text-gray-500 font-medium">
+                            <li class="mb-4"><a href="#" class="hover:underline">Privacy Policy</a></li>
+                            <li><a href="#" class="hover:underline">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+            <div class="sm:flex sm:items-center sm:justify-between">
+                <span class="text-sm text-gray-500 sm:text-center">© 2024 <a href="#" class="hover:underline">Inventro™</a>. All Rights Reserved.</span>
+                <div class="flex mt-4 sm:justify-center sm:mt-0 space-x-5">
+                    <a href="#" class="text-gray-400 hover:text-gray-900"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gray-900"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-gray-900"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS
+         - Small script to toggle mobile navigation visibility
+    -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const navbar = document.getElementById('navbar-sticky');
+
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
+// ...existing code...
